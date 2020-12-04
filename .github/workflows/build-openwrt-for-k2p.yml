@@ -48,7 +48,7 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
     - name: Clone source code
-      run: git clone $REPO_URL -b $REPO_BRANCH openwrt && echo 'src-git lienol https://github.com/Lienol/openwrt-package' >> openwrt/feeds.conf.default && echo 'src-git argon https://github.com/DreamWalkerXZ/luci-theme-argon-dwxz-mod' >> openwrt/feeds.conf.default
+      run: git clone $REPO_URL -b master openwrt && echo 'src-git lienol https://github.com/Lienol/openwrt-package' >> openwrt/feeds.conf.default && echo 'src-git argon https://github.com/DreamWalkerXZ/luci-theme-argon-dwxz-mod' >> openwrt/feeds.conf.default
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
