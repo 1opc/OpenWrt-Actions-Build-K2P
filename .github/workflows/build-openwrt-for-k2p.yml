@@ -6,7 +6,7 @@ on:
     types: published
   push:
     branches:
-      - master
+      - main
     paths:
       - '.config'
 #   schedule:
@@ -16,7 +16,7 @@ on:
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
-  REPO_BRANCH: master
+  REPO_BRANCH: main
   CONFIG_FILE: .config
   DIY_SH: diy.sh
   SSH_ACTIONS: false
@@ -33,7 +33,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@master
+      uses: actions/checkout@main
 
     - name: Initialization environment
       env:
@@ -63,7 +63,7 @@ jobs:
         cd openwrt
         ../$DIY_SH
     - name: SSH connection to Actions
-      uses: P3TERX/debugger-action@master
+      uses: P3TERX/debugger-action@main
       if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
 
     - name: Download package
